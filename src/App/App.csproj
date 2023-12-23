@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>QrCodeCli-UserSecrets</UserSecretsId>
+        <Version>0.0.4-preview</Version>
+        <Authors>Aymen TROUDI</Authors>
+        <PackAsTool>true</PackAsTool>
+        <PackageId>QrCodeCli</PackageId>
+        <PackageOutputPath>../../nugets</PackageOutputPath>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <ToolCommandName>QrCode</ToolCommandName>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>A net global tool helping to encode/decode qr codes</Description>
+        <PackageTags>dotnet, global tools, cli, qr-code</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://github.com/aimenux/QrCodeCli</PackageProjectUrl>
+        <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <Deterministic>true</Deterministic>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="11.9.0" />
+      <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.0" />
+      <PackageReference Include="McMaster.Extensions.Hosting.CommandLine" Version="4.1.0" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+      <PackageReference Include="QRCoder" Version="1.4.3" />
+      <PackageReference Include="Serilog.Extensions.Hosting" Version="7.0.0" />
+      <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.1" />
+      <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+      <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.6" />
+      <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="2.88.6" />
+      <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="2.88.6" />
+      <PackageReference Include="Spectre.Console" Version="0.48.0" />
+      <PackageReference Include="Spectre.Console.ImageSharp" Version="0.48.0" />
+      <PackageReference Include="ZXing.Net.Bindings.SkiaSharp" Version="0.16.13" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

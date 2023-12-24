@@ -23,7 +23,7 @@ public class DecodeCommand : AbstractCommand
         {
             var parameters = new QrCodeParameters
             {
-                Input = Input
+                Input = Path.GetFullPath(Input)
             };
             
             var qrCodeText = _qrCodeService.DecodeQrCode(parameters);

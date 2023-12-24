@@ -1,4 +1,6 @@
-﻿namespace App.Extensions;
+﻿using System.Globalization;
+
+namespace App.Extensions;
 
 public static class StringExtensions
 {
@@ -20,5 +22,15 @@ public static class StringExtensions
     public static bool IsValidCoordinate(this string input)
     {
         return !string.IsNullOrWhiteSpace(input) && input.All(c => char.IsDigit(c) || c == '.');
+    }
+    
+    public static bool IsDecimal(this string val, out decimal amount)
+    {
+        return decimal.TryParse(val, NumberStyles.Any, CultureInfo.InvariantCulture, out amount);
+    }
+    
+    public static decimal ToDecimal(this string val)
+    {
+        return decimal.Parse(val, NumberStyles.Any, CultureInfo.InvariantCulture);
     }
 }

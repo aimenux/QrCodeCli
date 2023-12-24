@@ -38,4 +38,31 @@ public class StringExtensionsTests
         // assert
         areEquals.Should().BeFalse();
     }
+    
+    [Theory]
+    [InlineData("10.23")]
+    [InlineData("10,23")]
+    public void Should_Be_Decimal(string val)
+    {
+        // arrange
+        // act
+        var isDecimal = val.IsDecimal(out var _);
+
+        // assert
+        isDecimal.Should().BeTrue();
+    }
+    
+    [Theory]
+    [InlineData("1abc")]
+    [InlineData("10;23")]
+    [InlineData("10..23")]
+    public void Should_Not_Be_Decimal(string val)
+    {
+        // arrange
+        // act
+        var isDecimal = val.IsDecimal(out var _);
+
+        // assert
+        isDecimal.Should().BeFalse();
+    }
 }

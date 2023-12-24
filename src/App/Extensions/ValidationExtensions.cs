@@ -23,14 +23,14 @@ public static class ValidationExtensions
     public static IRuleBuilderOptions<T, string> AmountIsValid<T>(this IRuleBuilder<T, string> ruleBuilder)
     {
         return ruleBuilder
-            .Must<T, string>((Func<T, string, bool>) ((x, val) => decimal.TryParse(val, out _)))
+            .Must<T, string>((Func<T, string, bool>) ((x, val) => val.IsDecimal(out _)))
             .WithMessage("Amount '{PropertyValue}' is not valid.");
     }
     
     public static IRuleBuilderOptions<T, string> AmountIsBetween<T>(this IRuleBuilder<T, string> ruleBuilder, decimal min, decimal max)
     {
         return ruleBuilder
-            .Must<T, string>((Func<T, string, bool>) ((x, val) => decimal.TryParse(val, out var amount) && amount >= min && amount <= max))
+            .Must<T, string>((Func<T, string, bool>) ((x, val) => val.IsDecimal(out var amount) && amount >= min && amount <= max))
             .WithMessage("Amount '{PropertyValue}' is not between '{min}' and '{max}'.");
     }
     

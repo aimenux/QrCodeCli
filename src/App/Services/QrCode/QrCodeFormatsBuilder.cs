@@ -1,4 +1,5 @@
-﻿using QRCoder;
+﻿using App.Extensions;
+using QRCoder;
 
 namespace App.Services.QrCode;
 
@@ -24,7 +25,7 @@ public static class QrCodeFormatsBuilder
             iban,
             bic,
             name,
-            decimal.Parse(amount), 
+            amount.ToDecimal(), 
             information,
             remittanceType,
             purpose,

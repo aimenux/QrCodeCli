@@ -1,5 +1,5 @@
 [![.NET](https://github.com/aimenux/QrCodeCli/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/aimenux/QrCodeCli/actions/workflows/ci.yml)
-[![NuGet](https://img.shields.io/nuget/v/QrCodeCli)](https://www.nuget.org/packages/CertificateCli/)
+[![NuGet](https://img.shields.io/nuget/v/QrCodeCli)](https://www.nuget.org/packages/QrCodeCli/)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=QrCodeCli-Key&metric=coverage)](https://sonarcloud.io/summary/new_code?id=QrCodeCli-Key)
 
 # QrCodeCli

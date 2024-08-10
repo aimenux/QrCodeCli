@@ -9,13 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
           6.0.x
           7.0.x
+          8.0.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -32,23 +33,24 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
             6.0.x
-            7.0.x          
+            7.0.x
+            8.0.x
       - name: SonarCloud Scan
-        uses: highbyte/sonarscan-dotnet@v2.2.3
+        uses: highbyte/sonarscan-dotnet@v2.3.2
         with:
           sonarProjectName:  QrCodeCli
           sonarProjectKey: QrCodeCli-Key
           sonarOrganization: aimenux-sonar-cloud-key
-          dotnetTestArguments: -f net7.0 --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+          dotnetTestArguments: -f net8.0 --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
           sonarBeginArguments: /d:sonar.cs.opencover.reportsPaths="**/**/TestResults/**/coverage.opencover.xml"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

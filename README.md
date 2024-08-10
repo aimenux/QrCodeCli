@@ -41,4 +41,4 @@ A global tool to encode and decode qr codes
 >
 >
 
-**`Tools`** : vs22, net 6.0/7.0, qrcoder, zxing, command-line, spectre-console
+**`Tools`** : vs22, net 6.0/7.0/8.0, qrcoder, zxing, command-line, spectre-console

@@ -10,7 +10,7 @@ public static class PathExtensions
 
     public static string GenerateFileName(this string path, string prefix = "QrCode", string extension = ".png")
     {
-        return Path.Combine(path, $"{prefix}-{DateTime.Now:yyMMddHHmmss}{extension}");
+        return Path.Combine(path, $"{prefix}-{DateTime.Now:yyMMddHHmmss}-{Guid.NewGuid():N}{extension}");
     }
 
     public static string GetDirectoryPath()
